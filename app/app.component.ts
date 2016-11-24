@@ -18,10 +18,22 @@ const HEROES: Hero[] = [
   { id: 20, name: 'Tornado' }
 ];
 
+
+
 @Component({
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
+
+    <!-- Display list of Heroes-->
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <span class="badge">{{hero.id}}</span>{{hero.name}}
+      </li>
+    </ul>
+
+    <!-- Display Hero Details -->
     <h2>{{hero.name}} details!</h2>
     <div>
       <label>id:</label>{{hero.id}}
@@ -34,5 +46,7 @@ const HEROES: Hero[] = [
 })
 export class AppComponent  {
   title = 'Tour of Heroes';
-  hero : Hero = { id: 1, name: "Windstorm" }
+  hero : Hero = { id: 1, name: "Windstorm" };
+
+  heroes = HEROES;
 }
